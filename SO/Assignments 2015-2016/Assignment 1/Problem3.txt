@@ -1,0 +1,36 @@
+
+ +-----------------------------------------------+----------------------------+
+ |            Universidade de Coimbra            |         Abr - 2016         |
+ +-----------------------------------------------+----------------------------+
+ |                         Sistemas Operativos - MIEEC                        |
+ +----------------------------------------------------------------------------+
+ | Processes, Files, Pipes, FIFOs, I/O Redirection, Unix Sockets, and Signals |
+ +----------------------------------------------------------------------------+
+ |                                Grupo 5 - TP3                               |
+ +----------------------------------------------------------------------------+
+ | Cristiano André Ramos Alves                   | 2009109526                 |
+ +-----------------------------------------------+----------------------------+
+ | Luís Rafael dos Santos Afonso                 | 2013135191                 |
+ +-----------------------------------------------+----------------------------+
+
+When running the code bellow, the output can be "P P C"
+
+#include <stdio.h>
+#include <unistd.h>
+int main(int argc, char *argv[]){
+	printf("P ");
+	if(fork()==0)
+		printf("C ");
+	return(0);
+}
+
+	This is because printf is line buffered. When printf("P ") is executed, "P "
+ is placed in the buffer and will be printed after some time.
+	When "fork()" is executed, a child process is created which will create a 
+copy of the parent starting at the fork, including the memory which includes that buffer.
+	This will result in the child having already a "P " in his stdout buffer, so it will print it too.
+	So the "P P C" could be the parent printing "P " and the child printing "P C  " or the child 
+printing "P ", then the parent "P " and then the child prints "C ".
+	
+	But, if instead of printf("P "), it was used printf("P \n"), the string would be printed right 
+away instead of sitting in the buffer for a while, so the string wouldn't be copied to the child.
