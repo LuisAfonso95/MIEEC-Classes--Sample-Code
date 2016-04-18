@@ -1,0 +1,7 @@
+binariza: main_.o bin_img_.o
+	gcc -g main_.o bin_img_.o -o binariza
+main_.o: main_.c
+	gcc -g -c main_.c
+bin_img_.o: bin_img_.c
+	gcc -g -c bin_img_.c
+

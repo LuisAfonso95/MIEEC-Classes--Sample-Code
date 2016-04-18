@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="FPGA_MIPS">
+		<CBX_INST_ENTRY INSTANCE_NAME="|MIPS_DE2|lpm_counter0:inst1|lpm_counter:lpm_counter_component" CBX_FILE_NAME="cntr_g3i.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|MIPS_DE2|top_cycloneii:inst|LPM_ROM:format_rom|altrom:srom|altsyncram:rom_block" CBX_FILE_NAME="altsyncram_c201.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|MIPS_DE2|top_cycloneii:inst|LPM_ROM:tiny_char_gen_rom|altrom:srom|altsyncram:rom_block" CBX_FILE_NAME="altsyncram_6401.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

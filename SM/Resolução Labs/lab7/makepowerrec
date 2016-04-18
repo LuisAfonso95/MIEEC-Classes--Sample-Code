@@ -1,0 +1,6 @@
+power: power_rec.o tpower.o
+	gcc -g power_rec.o tpower.o -o power
+power_rec.o: power_rec.s
+	gcc -g -c -x assembler power_rec.s
+tpower.o: tpower.c
+	gcc -g -c tpower.c

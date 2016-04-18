@@ -1,0 +1,14 @@
+
+5 * 3 = 8
+
+i * j = 21
+
+i = 7 e j = 3
+
+Depois de k = i - j, i = 7 e j = 3
+k = 4
+Depis de incrementar k = 5
+
+
+
+

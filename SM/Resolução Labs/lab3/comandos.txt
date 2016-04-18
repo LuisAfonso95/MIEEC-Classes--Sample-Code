@@ -1,0 +1,21 @@
+1.
+
+gcc -g memoria_.c -o memoria.exe
+gdb memoria.exe
+info var
+info locals
+
+
+2.
+make
+
+3.
+gcc -g rec.c -o rec.exe
+gdb rec.exe
+
+Devido à recursividade efectuada indefinidamente, vão sendo
+adicionadas sucessivamente stack frames à stack, o que acaba por
+resultar numa situação de "stack overflow".
+
+
+gcc -g factorial.c -o factorial.exe

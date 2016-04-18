@@ -1,0 +1,7 @@
+mediapond: mediapond.o main2.o
+	gcc mediapond.o main2.o -o mediapond
+mediapond.o: mediapond.s
+	gcc -c -g -x assembler mediapond.s
+main2.o: main2.c
+	gcc -c -g main2.c
+

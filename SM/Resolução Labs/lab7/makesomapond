@@ -1,0 +1,6 @@
+somapond: somapond.o main.o
+	gcc somapond.o main.o -o somapond
+somapond.o: somapond.s
+	gcc -c -g -x assembler somapond.s
+main.o: main.c
+	gcc -c -g main.c

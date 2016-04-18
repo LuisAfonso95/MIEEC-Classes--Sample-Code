@@ -1,0 +1,25 @@
+	.data
+	
+	.text
+	.globl Mandelbrot
+
+	
+		
+Mandelbrot:
+		
+
+
+move $v0, $a0 #$v0 é valor, a0 é z0
+
+li $t0, 1
+loop:
+
+mult $v0, $v0
+mflo $v0
+
+addi $t0, $t0, 1
+bne $t0, $a1, loop # i != n entoa vai para loop
+
+add $v0, $v0, $a0
+
+jr $ra

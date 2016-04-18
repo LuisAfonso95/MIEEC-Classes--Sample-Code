@@ -1,0 +1,1 @@
+gcc -S lab6.c -o lab6.s

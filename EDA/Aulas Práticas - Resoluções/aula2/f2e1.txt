@@ -1,0 +1,19 @@
+
+Mostra as letras: PQRS //falta 1 endl aqui
+As letras e os Códigos:
+A letra 'P' tem código ASCII 80
+A letra 'Q' tem código ASCII 81
+A letra 'R' tem código ASCII 82
+A letra 'S' tem código ASCII 0X53 //A letra 'S' tem código ASCII 83
+
+Novamente as letras e os Códigos:
+A letra 'S' tem código ASCII 83
+A letra 'Q' tem código ASCII 81 //A letra 'T' tem código ASCII 84
+A letra 'R' tem código ASCII 82 //A letra 'U' tem código ASCII 85
+
+===========================================================================
+c)No primeiro valor escreve-se apenas letra1, escreve a variavel de tipo char. No segundo usa-se int(letra1), que converte e escreve o char (ou o que estiver entre parênteses) em inteiro
+
+d)O primeiro apenas se escreve a variavel de tipo char. No segundo escreve-se a variavel inteira código que contêm o valor decimal do char.
+
+e)

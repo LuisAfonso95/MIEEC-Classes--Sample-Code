@@ -1,0 +1,101 @@
+.data
+
+string: .asciiz "Introduza 5 numeros\n"
+.text
+.globl program_asm
+#Cabula/Nota
+#http://www.cs.umb.edu/cs641/MIPscallconvention.html
+
+PedeInteiros:
+
+#Imprime um pedido de 5 inteiros
+la $a0, string
+li $v0, 4
+syscall
+#
+
+li $t0, 0
+addi $sp, $sp, -20
+move $t1, $sp
+move $a0, $sp
+loop:
+	li $v0, 5
+	syscall
+	sw $v0, 0($t1)
+	addi $t1, $t1, 4
+	addi $t0, $t0, 1
+	bne $t0, 5, loop
+jal program_asm	
+
+addi $sp, $sp, 20
+
+END:
+        li      $v0, 10         # Exit the program
+        syscall
+#--------Fim Pede inteiro----------
+#---------------------------------
+
+#---------------------------------
+program_asm:
+#aqui carrega todos os valores da tabela para parametros			
+move $t0,$a0 #Muda o endereço da tabela para t0	
+lw $a0, 0($t0)
+lw $a1, 4($t0)
+lw $a2, 8($t0)
+lw $a3, 12($t0)
+lw $t1, 16($t0)	#nao ha mais registo parametro por isso guarda-se em t1
+
+addi $sp, $sp, -8 #reserva de espaço na stack
+sw $ra, 4($sp) #guarda registo de retorno
+sw $fp, 0($sp) #guarda frame pointer anterior
+
+addi $sp, $sp, -20 #reserva de espaço na stack para o $fp
+move $fp, $sp
+sw $t1, 16($fp) #guarda 5º parametro. Usa-se o frame pointer por ser fixo
+		#o 5º parametro é sempre em 16. 16-arg4, 20-arg5, etc..
+		#é sempre nesses valores mesmo sendo um char que so ocupa 1byte em vez de 4bytes.
+jal PolyCalc
+
+	move $a0, $v0
+	li $v0, 1
+	syscall
+	
+addi $sp, $sp, 20
+lw $ra, 4($sp)
+lw $fp, 0($sp)
+addi $sp, $sp, 8
+
+jr $ra
+#--------Fim program_asm----------
+#---------------------------------
+
+
+#---------------------------------
+PolyCalc:
+
+	li $t4, 3
+	mult $a1, $t4
+		mflo $t0
+	addu $t1, $a0, $t0
+
+	#sll $t1, $t1, 1 # t1= t1*2
+	
+	lw $t2, 16($fp)
+	li $t4, -2
+	mult $a3, $t4
+		mflo $t0
+	mult $t0, $t2
+		mflo $t0
+	add $t3, $a2, $t0
+	
+	mult $t1, $t3
+		mflo $v0
+		
+	sll $v0, $v0, 1 # total*2
+	
+	jr $ra
+#--------Fim PolyCalc----------
+#------------------------------			
+
+
+

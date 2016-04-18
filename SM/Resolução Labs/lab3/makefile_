@@ -1,0 +1,6 @@
+vector_: vector_.o test.o
+	gcc vector_.o test.o -o vector_
+test.o: test.c vector.h
+	gcc -c test.c
+vector_.o: vector_.c vector.h
+	gcc -g -c vector_.c
