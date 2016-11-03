@@ -1,0 +1,7 @@
+Ola tudo bem. Luis Rafael dos Santos Afonso
+Yes. Bubu Marques
+Será que se tiver mais de 10 pacotes isto dá asneira?
+Se o send esperar por espaço de forma bloqueante não deve dar, mas será que isso daria problemas?
+Fogo raio dos 1's onde não deviam tar.
+Então agora 0x00 |= 0xDA pode dar 0xFFFFFFDA??? 
+Mas isto agora é assim? pelos vistos porque era um signed char e o bit mais significativo (o bit7) era 1, fazia tipo extensão de sinal e metia 1 em tudo para trás para continuar com sinal
